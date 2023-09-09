@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Drag and Drop Example</title>
+    <style>
+        .drag-box {
+            width: 100px;
+            height: 100px;
+            background-color: #3498db;
+            color: white;
+            text-align: center;
+            line-height: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="drag-element" class="drag-box" draggable="true">Drag Me</div>
+
+    <script>
+        const dragElement = document.getElementById("drag-element");
+
+        // Handle the dragstart event
+        dragElement.addEventListener("dragstart", function (event) {
+            event.dataTransfer.setData("text/plain", "DraggedElement");
+        });
+
+        // Handle the dragover event to allow a drop
+        dragElement.addEventListener("dragover", function (event) {
+            event.preventDefault(); // Allow drop
+        });
+
+        // Handle the drop event
+        dragElement.addEventListener("drop", function (event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("text/plain");
+            event.target.innerText = data;
+        });
+    </script>
+</body>
+
+</html>
