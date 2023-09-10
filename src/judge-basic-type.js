@@ -1,4 +1,6 @@
 //依赖typeof判断基础数据类型，因为typeof null为object所以特别判断
+
+//工厂函数
 const typeOfTest = type => thing => typeof thing === type;
 
 //const isBoolean = typeOfTest('boolean');

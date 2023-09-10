@@ -37,6 +37,7 @@ function deepCopy(target) {
     return copy;
 }
 
+//浅拷贝只要在深拷贝的基础上，删除递归复制
 function shallowCopy(target) {
     if (target === null || typeof target !== 'object') {
         return target;
