@@ -1,5 +1,5 @@
 //依赖Object.prototype.toString来获取数据类型
-//可以判断对象的类型
+//可以判断对象的类型，但不能判断对象是否在某个原型链上
 const kindOf = (cache => thing => {
   const str = Object.prototype.toString.call(thing);
   return cache[str] || (cache[str] = str.slice(8, -1).toLowerCase());

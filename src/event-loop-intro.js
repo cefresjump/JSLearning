@@ -31,3 +31,12 @@ const timer1 = setTimeout(() => {
   })
 }, 0)
 console.log('start');
+
+/*
+output:
+start
+promise1
+timer1
+promise2
+timer2
+*/
