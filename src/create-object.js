@@ -12,7 +12,7 @@ function createObject(proto) {
 }
 
 const test = () => {
-    var person = {
+    let person = {
         firstName: "John",
         lastName: "Doe",
         fullName: function () {

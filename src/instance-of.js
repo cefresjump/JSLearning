@@ -2,15 +2,13 @@
 MDN：instanceof 运算符用来检测 constructor.prototype 是否存在于参数 object 的原型链上。
 */
 function myInstanceof(left, right) {
-    let proto = left.prototype, // 获取对象的原型
-        prototype = right.prototype; // 获取构造函数的 prototype 对象
+    let proto = Object.getPrototypeOf(left);
 
-    // 判断构造函数的 prototype 对象是否在对象的原型链上
     while (true) {
         if (!proto) return false;
-        if (proto === prototype) return true;
+        if (proto === right.prototype) return true;
 
-        proto = proto.prototype;
+        proto = Object.getPrototypeOf(proto);
     }
 }
 
@@ -38,13 +36,13 @@ const test = () => {
     const person1 = new Person("An", 12);
     const student1 = new Student("Serena", 16, 1);
 
-    console.log(person1 instanceof Object);
-    console.log(person1 instanceof Person);
-    console.log(person1 instanceof Student);
+    console.log(myInstanceof(person1, Object));
+    console.log(myInstanceof(person1, Person));
+    console.log(myInstanceof(person1, Student));
 
-    console.log(student1 instanceof Object);
-    console.log(student1 instanceof Person);
-    console.log(student1 instanceof Student);
+    console.log(myInstanceof(student1, Object));
+    console.log(myInstanceof(student1, Person));
+    console.log(myInstanceof(student1, Student));
 }
 
 test()
