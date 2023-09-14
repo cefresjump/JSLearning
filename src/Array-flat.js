@@ -1,3 +1,7 @@
+/*
+将嵌套数组展开成只有一层的数组
+*/
+
 function flatten(arr) {
     let result = [];
 

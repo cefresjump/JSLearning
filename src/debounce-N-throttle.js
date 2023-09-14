@@ -13,15 +13,14 @@ function debounce(func, delay) {
     }
 }
 
-
 function throttle(func, delay) {
-    const coldDown = false;
+    const isColdDown = false;
     return function () {
-        if (!coldDown) {
+        if (!isColdDown) {
             func.apply(this, arguments);
-            coldDown = true;
+            isColdDown = true;
             setTimeout(() => {
-                coldDown = false;
+                isColdDown = false;
             }, delay)
         }
     }

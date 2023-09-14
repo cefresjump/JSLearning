@@ -23,8 +23,16 @@ const test = () => {
         this.name = name;
     }
 
+    function weridPerson(name) {
+        this.name = name;
+        return {
+            name: '???'
+        }
+    }
     const obj1 = myNew(Person, "Alice");
+    const obj2 = new weridPerson('John');
     console.log(obj1);
+    console.log(obj2);
 }
 
 test()
