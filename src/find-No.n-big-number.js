@@ -1,4 +1,3 @@
-<<<<<<< HEAD:src/find-No.n-big-Number.js
 //给一个无序无重复数组nums和数字n，找出数组中第n大的元素，利用快排
 //如果是有重复可以先去重
 function findIndexByBigRank(nums, rank) {
@@ -53,6 +52,3 @@ const test = () => {
 }
 
 test()
-=======
-//给一个无序数组nums和数字n，找出数组中第n大的元素，利用快排
->>>>>>> f2280aa86c1e5e981cf7b0176954b4fe4c3b473c:src/find-No.n-big-number.js
