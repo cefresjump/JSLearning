@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>双向绑定示例</title>
+</head>
+
+<body>
+    <input type="text" id="inputField">
+    <p id="outputText"></p>
+
+    <script>
+        // 获取输入框和输出元素
+        const inputField = document.getElementById("inputField");
+        const outputText = document.getElementById("outputText");
+
+        // 数据模型
+        const data = {
+            text: ""
+        };
+
+        // 初始化界面
+        inputField.value = data.text;
+        outputText.textContent = data.text;
+
+        // 监听输入框的变化，更新数据模型和输出元素
+        inputField.addEventListener("input", function (event) {
+            data.text = event.target.value;
+            outputText.textContent = data.text;
+        });
+
+        // 监听数据模型的变化，更新输入框和输出元素
+        Object.defineProperty(data, "text", {
+            get: function () {
+                return this._text;
+            },
+            set: function (value) {
+                this._text = value;
+                inputField.value = value;
+                outputText.textContent = value;
+            }
+        });
+    </script>
+</body>
+
+</html>
