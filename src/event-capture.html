@@ -1,0 +1,47 @@
+<!-- addEventListener(type, listener, useCapture); -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>三层元素嵌套的addEventListener示例</title>
+</head>
+
+<body>
+
+    <div id="outer" style="border: 1px solid red; padding: 10px;">
+        <p>外部容器</p>
+        <div id="middle" style="border: 1px solid green; padding: 10px;">
+            <p>中间容器</p>
+            <div id="inner" style="border: 1px solid blue; padding: 10px;">
+                <p>内部容器</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 获取三个容器元素
+        var outer = document.getElementById("outer");
+        var middle = document.getElementById("middle");
+        var inner = document.getElementById("inner");
+
+        // 创建事件处理函数
+        function handleEvent1(event) {
+            console.log(" 1被点击了！");
+        }
+
+        function handleEvent2(event) {
+            console.log(" 2被点击了！");
+        }
+
+        function handleEvent3(event) {
+            console.log(" 3被点击了！");
+        }
+        // 使用addEventListener方法为每个容器添加点击事件监听器
+        outer.addEventListener("click", handleEvent1, true);
+        middle.addEventListener("click", handleEvent2, false);
+        inner.addEventListener("click", handleEvent3, true);
+
+    </script>
+</body>
+
+</html>
