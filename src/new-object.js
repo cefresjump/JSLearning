@@ -11,7 +11,7 @@ MDN：
 
 function myNew(constructor, ...args) {
     let instance = {};
-    //instance.__proto__ = constructor.protype 已经不推荐使用
+    //instance.__proto__ = constructor.prototype 已经不推荐使用
     Object.setPrototypeOf(instance, constructor.prototype);
     const result = constructor.apply(instance, args);
     return (typeof result === 'object' && result !== null) ? result : instance;
