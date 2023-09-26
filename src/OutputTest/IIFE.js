@@ -5,17 +5,25 @@
 数据封装: IIFE 可以用来封装一些数据或功能，以便在不污染全局命名空间的情况下执行特定任务。
 传递参数: 您可以向 IIFE 传递参数，这些参数在函数内部可用，可以用于自定义函数的行为。
 */
+/*
+在这里var a = b = 3等效于
+var a（定义提升）
+其他代码
+b = 3
+a = b
+此外，你应该看见c是暗的，因为没有被使用
+*/
 const test1 = () => {
-    var a, b
+    var a = 1, b = 2;
     (function () {
-        console.log(a);
-        console.log(b);
+        console.log('before inner a:' + a);
+        console.log('before inner b:' + b);
         var a = b = 3;
-        console.log(a);
-        console.log(b);
+        console.log('after inner a:' + a);
+        console.log('after inner b:' + b);
     })()
-    console.log(a);
-    console.log(b);
+    console.log('outer a:' + a);
+    console.log('outer b:' + b);
 }
 
 test1();
