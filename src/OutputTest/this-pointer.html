@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>this指针</title>
+</head>
+
+<body>
+    <script>
+        function test1() {
+            console.log('test1');
+            let User = {
+                count: 1,
+                getCount: function () {
+                    return this.count;
+                }
+            };
+            console.log(User.getCount());
+            let func = User.getCount;
+            console.log(func());
+        }
+
+        test1()
+    </script>
+</body>
+
+</html>
