@@ -24,5 +24,17 @@ function test2() {
     arr.forEach((e) => { e(); })
 }
 
+function test2SameEffect() {
+    console.log('---test2SameEffect---')
+    let arr = [];
+    for (var i = 0; i < 4; i++) {
+        (function (currentI) {
+            arr.push(function () { console.log(currentI) });
+        })(i);
+    }
+    arr.forEach((e) => { e(); })
+}
+
 test1()
 test2()
+test2SameEffect()
